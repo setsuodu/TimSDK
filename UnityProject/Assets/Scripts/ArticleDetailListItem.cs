@@ -35,6 +35,7 @@ namespace Client
         [SerializeField] private RawImage[] mMultiImages;
         [Header("音频")]
         [SerializeField] private Image soundImage;
+        /*
         [Header("视频")]
         [SerializeField] private RawImage mediaRawImage;
         [SerializeField] private RawImage coverRawImage;
@@ -42,6 +43,7 @@ namespace Client
         [SerializeField] private MediaPlayerCtrl mediaPlayer;
         //[SerializeField] private CanvasGroup mediaCanvasGroup;
         [SerializeField] private Button m_PlayBtn;
+        */
         [Header("动态隐藏")]
         //所有子Group单独对子物体适应
         [SerializeField] private float Height;
@@ -60,9 +62,7 @@ namespace Client
             rect = gameObject.GetComponent<RectTransform>();
             item2 = gameObject.GetComponent<LoopListViewItem2>();
 
-            //mediaCanvasGroup.alpha = 0;
-            //mediaCanvasGroup.interactable = false;
-            //mediaCanvasGroup.blocksRaycasts = false;
+            /*
             mediaPlayer.OnReady = () =>
             {
                 Debug.Log($"OnReady status={mediaPlayer.GetCurrentState()}"); //NOT_READY
@@ -98,12 +98,12 @@ namespace Client
                 //mediaPlayer.Stop();
                 m_PlayBtn.gameObject.SetActive(true);
             };
+            m_PlayBtn.onClick.AddListener(OnPlayVideoBtnClick);
+            */
 
             mStarBtn.onClick.AddListener(CmdStar);
             mCommentBtn.onClick.AddListener(CmdComment);
             mShareBtn.onClick.AddListener(CmdShare);
-
-            m_PlayBtn.onClick.AddListener(OnPlayVideoBtnClick);
         }
 
         public void SetItemData(ArticleItemData itemData, int itemIndex)
@@ -185,7 +185,7 @@ namespace Client
 
             Print();
         }
-
+        /*
         // 播放视频
         public void OnPlayVideoBtnClick()
         {
@@ -194,7 +194,7 @@ namespace Client
             m_PlayBtn.gameObject.SetActive(false);
             mediaPlayer.Play();
         }
-
+        */
         // 动态扩展
         [ContextMenu("OnExpandBtnClicked")]
         void OnExpandBtnClicked()
@@ -276,6 +276,7 @@ namespace Client
                 mVideoGroup.gameObject.SetActive(videoActive);
                 if (videoActive)
                 {
+                    /*
                     //Debug.Log($"视频封面 {mItemData.cover}");
                     FileManager.Download(mItemData.cover, (byte[] bytes) => FileManager.OnLoadRawImage(bytes, coverRawImage, () =>
                     {
@@ -285,11 +286,10 @@ namespace Client
                             mediaAspect.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
                             float ratio = (float)coverRawImage.texture.width / (float)coverRawImage.texture.height;
                             mediaAspect.aspectRatio = ratio;
-                            //mediaRawImage.uvRect = new Rect(0, 0, 1, 1); //图片的Rect
-                            //mediaRawImage.transform.localScale = Vector3.one;
                         }
                     }));
                     mediaPlayer.m_strFileName = mItemData.dataUrl;
+                    */
                 }
                 Height += (videoActive ? mVideoGroup.rect.height : 0);
 
@@ -316,12 +316,6 @@ namespace Client
             //Debug.Log($"text={mTextGroup.rect.height}, image={mImageGroup.rect.height}, images={mImagesGroup.rect.height}," +
             //    $" loc={mLocGroup.rect.height}, topic={mTopicGroup.rect.height}, share={mShareGroup.rect.height}" +
             //    $" Height={Height} Sum={mTextGroup.rect.height+ mImageGroup.rect.height+ mImagesGroup.rect.height + mLocGroup.rect.height + mTopicGroup.rect.height + mShareGroup.rect.height}");
-
-            Debug.Log($"rect0={mediaRawImage.uvRect}");
-            //mediaRawImage.uvRect = new Rect(0, 1, 1, -1); //视频的Rect
-            mediaRawImage.uvRect = new Rect(0, 0, 1, 1); //视频的Rect
-            mediaRawImage.transform.localScale = Vector3.one;
-            Debug.Log($"rect1={mediaRawImage.uvRect}");
         }
     }
 }

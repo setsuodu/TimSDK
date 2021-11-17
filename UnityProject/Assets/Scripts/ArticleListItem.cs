@@ -73,11 +73,13 @@ namespace Client
         [SerializeField] private AspectRatioFitter[] mMultiImagesAspect;
         [Header("音频")]
         [SerializeField] private Image soundImage;
+        /*
         [Header("视频")]
         [SerializeField] private RawImage mediaRawImage;
         [SerializeField] private AspectRatioFitter mediaAspect;
         [SerializeField] private MediaPlayerCtrl mediaPlayer;
         [SerializeField] private Button m_PlayBtn;
+        */
         [Header("动态隐藏")]
         //所有子Group单独对子物体适应
         [SerializeField] private float Height;
@@ -324,6 +326,7 @@ namespace Client
                 mVideoGroup.gameObject.SetActive(videoActive);
                 if (videoActive)
                 {
+                    /*
                     //Debug.Log($"视频封面 {mItemData.cover}");
                     FileManager.Download(mItemData.cover, (byte[] bytes) => FileManager.OnLoadRawImage(bytes, mediaRawImage, () =>
                     {
@@ -337,6 +340,7 @@ namespace Client
                             mediaRawImage.transform.localScale = Vector3.one;
                         }
                     }));
+                    */
                 }
                 Height += (videoActive ? mVideoGroup.rect.height : 0);
 
