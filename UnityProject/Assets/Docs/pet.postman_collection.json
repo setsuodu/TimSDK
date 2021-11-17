@@ -1,0 +1,4080 @@
+{
+	"info": {
+		"_postman_id": "3611d17d-d97c-4c08-bc68-e2b5a2c54568",
+		"name": "pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loginApi",
+			"item": [
+				{
+					"name": "/login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "192.168.2.200:8080/login/login?loginType=1&phone=13718780428&code=999000",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"login",
+								"login"
+							],
+							"query": [
+								{
+									"key": "loginType",
+									"value": "1",
+									"description": "1手机验证码 2手机密码 10 微信 11 qq 12微博"
+								},
+								{
+									"key": "phone",
+									"value": "13718780428",
+									"description": "手机号"
+								},
+								{
+									"key": "code",
+									"value": "999000",
+									"description": "验证码或者密码"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/sendSMS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/login/sendSMS?requestId=123456&phone=13718780428&sign=ae1be6d7b2ed41093422d4eb2e3c4c82b469a879",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login",
+								"sendSMS"
+							],
+							"query": [
+								{
+									"key": "requestId",
+									"value": "123456"
+								},
+								{
+									"key": "phone",
+									"value": "13718780428"
+								},
+								{
+									"key": "sign",
+									"value": "ae1be6d7b2ed41093422d4eb2e3c4c82b469a879",
+									"description": "SHA(requestId+phone+key)"
+								}
+							]
+						},
+						"description": "发送手机验证码"
+					},
+					"response": []
+				},
+				{
+					"name": "/phone/binding",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/phone/binding?token=ea31f90222b8a5a277c3b9386c6cf3b5&phone&code=1234",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"phone",
+								"binding"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "phone",
+									"value": null,
+									"description": "手机号"
+								},
+								{
+									"key": "code",
+									"value": "1234",
+									"description": "验证码"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "192.168.2.200:8080/logout?token=",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"logout"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "apiServer",
+			"item": [
+				{
+					"name": "/api/article/follows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/follows?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&type=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"follows"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc",
+									"description": "用户登录凭证"
+								},
+								{
+									"key": "skip",
+									"value": "0",
+									"description": "跳过条数，默认0"
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "列表大小 默认20"
+								},
+								{
+									"key": "type",
+									"value": "0",
+									"description": "全部 1 图文，2视频"
+								}
+							]
+						},
+						"description": "此接口取消\n用户关注的文章"
+					},
+					"response": [
+						{
+							"name": "articles follows",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.youwan.art/api/article/follows?token=432b5e04d60e208c04718cf7cd17c6a83ef374244164da08&skip=0&size=20&type=0",
+									"protocol": "https",
+									"host": [
+										"api",
+										"youwan",
+										"art"
+									],
+									"path": [
+										"api",
+										"article",
+										"follows"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "432b5e04d60e208c04718cf7cd17c6a83ef374244164da08",
+											"description": "用户登录凭证"
+										},
+										{
+											"key": "skip",
+											"value": "0",
+											"description": "跳过条数，默认0"
+										},
+										{
+											"key": "size",
+											"value": "20",
+											"description": "列表大小 默认20"
+										},
+										{
+											"key": "type",
+											"value": "0",
+											"description": "全部 1 图文，2视频"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.16.1"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 27 Dec 2019 06:17:47 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 0,//总条数\n    \"size\": 20,//大小\n    \"url\": null,\n    \"list\": [],//文章列表\n    \"curPage\": 1,//当前页数\n    \"totalPage\": 0//总页数\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/article/discover",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/discover?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&type=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"discover"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type",
+									"value": ""
+								}
+							]
+						},
+						"description": "文章发现列表"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/nearby",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/nearby?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&type=0&lat=20.21&lng=120.1101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"nearby"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type",
+									"value": "0"
+								},
+								{
+									"key": "lat",
+									"value": "20.21",
+									"description": "纬度"
+								},
+								{
+									"key": "lng",
+									"value": "120.1101",
+									"description": "经度"
+								}
+							]
+						},
+						"description": "附近的文章"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/my",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/my?token=e74f59a6ba08bef1f2a959d06cc0ace4&skip=0&limit=20&type=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"my"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "e74f59a6ba08bef1f2a959d06cc0ace4"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type",
+									"value": "0"
+								}
+							]
+						},
+						"description": "我得文章"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/detail?id=30&token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "30",
+									"description": "文章id"
+								},
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								}
+							]
+						},
+						"description": "文章详情"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/del",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/del?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&id=45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"del"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "id",
+									"value": "45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/user?uid=1&token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&type=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"user"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "查看的用户id"
+								},
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type",
+									"value": "0"
+								}
+							]
+						},
+						"description": "某用户的文章"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/pub",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/pub?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&type=1&content=test&cover=http://dmimg.5054399.com/allimg/pkm/pk/22.jpg&pics=http://dmimg.5054399.com/allimg/pkm/pk/22.jpg,http://dmimg.5054399.com/allimg/pkm/pk/22.jpg&dataUrl&topics=最萌宝宝,可爱&pri&lat=20.1&lng=120.12&addr=杭州&top=0&anonymous=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"pub"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"description": "TYPE_IMG = 1;// 图片 TYPE_VIDEO = 2;// 视频  TYPE_AUDIO = 3;// 音频 TYPE_TXT = 4;// 纯文TYPE_MODEL = 10;// 模型 TYPE_SIGN_IN = 100 签到"
+								},
+								{
+									"key": "content",
+									"value": "test",
+									"description": "文章内容"
+								},
+								{
+									"key": "cover",
+									"value": "http://dmimg.5054399.com/allimg/pkm/pk/22.jpg",
+									"description": "封面"
+								},
+								{
+									"key": "pics",
+									"value": "http://dmimg.5054399.com/allimg/pkm/pk/22.jpg,http://dmimg.5054399.com/allimg/pkm/pk/22.jpg",
+									"description": "图集"
+								},
+								{
+									"key": "dataUrl",
+									"value": null,
+									"description": "视频等地址"
+								},
+								{
+									"key": "topics",
+									"value": "最萌宝宝,可爱",
+									"description": "话题"
+								},
+								{
+									"key": "pri",
+									"value": null,
+									"description": "可见类型"
+								},
+								{
+									"key": "lat",
+									"value": "20.1",
+									"description": "纬度"
+								},
+								{
+									"key": "lng",
+									"value": "120.12",
+									"description": "经度\n"
+								},
+								{
+									"key": "addr",
+									"value": "杭州"
+								},
+								{
+									"key": "top",
+									"value": "0",
+									"description": "1 置顶"
+								},
+								{
+									"key": "anonymous",
+									"value": "0",
+									"description": "1匿名发布"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/praise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/praise?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&aid=25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"praise"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "aid",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/unPraise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/unPraise?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&aid=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"unPraise"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "aid",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/topic/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/topic/list?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&name=清",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"topic",
+								"list"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "name",
+									"value": "清"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/topic/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/topic/create?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&name=青花瓶",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"topic",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "name",
+									"value": "青花瓶"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/comment/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/comment/list?token=3ff72c8032cf7bd474432be615f078cda10e48c0d688e104&skip=0&limit=20&aid=30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"comment",
+								"list"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "3ff72c8032cf7bd474432be615f078cda10e48c0d688e104"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "aid",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/comment/replies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/comment/replies?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&skip=0&limit=20&baseId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"comment",
+								"replies"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "baseId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/comment/reply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/comment/reply?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&aid=4&cid=1&content=哈dfd哈嗒&pics=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"comment",
+								"reply"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "aid",
+									"value": "4"
+								},
+								{
+									"key": "cid",
+									"value": "1"
+								},
+								{
+									"key": "content",
+									"value": "哈dfd哈嗒"
+								},
+								{
+									"key": "pics",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/comment/praise",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/comment/praise?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&cid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"comment",
+								"praise"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "cid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/toFriend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/toFriend?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&rid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"toFriend"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "rid",
+									"value": "1",
+									"description": "对方id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/myinfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/myinfo?token=fbc38e528cf1a5264c8f6f7b368e0d4a",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"myinfo"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "fbc38e528cf1a5264c8f6f7b368e0d4a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/info?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&uid=13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"info"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "uid",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/relationUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/relationUser?token=ea31f90222b8a5a277c3b9386c6cf3b5&rid=2",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"relationUser"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "rid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/update?token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&nickname=八神打来&birthday=20080101&signal=真的来了&province=浙江&city=杭州&district=滨江&sex=1&country=中国&avatar=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"update"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "nickname",
+									"value": "八神打来"
+								},
+								{
+									"key": "birthday",
+									"value": "20080101",
+									"description": "int型"
+								},
+								{
+									"key": "signal",
+									"value": "真的来了"
+								},
+								{
+									"key": "province",
+									"value": "浙江"
+								},
+								{
+									"key": "city",
+									"value": "杭州"
+								},
+								{
+									"key": "district",
+									"value": "滨江"
+								},
+								{
+									"key": "sex",
+									"value": "1",
+									"description": "1 男 -1 女"
+								},
+								{
+									"key": "country",
+									"value": "中国",
+									"description": "国家"
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"description": "头像"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/recommend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/recommend?token=e74f59a6ba08bef1f2a959d06cc0ace4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"recommend"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "e74f59a6ba08bef1f2a959d06cc0ace4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/shareCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/shareCode?token=e74f59a6ba08bef1f2a959d06cc0ace4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"shareCode"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "e74f59a6ba08bef1f2a959d06cc0ace4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/loginXcx",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/loginXcx?myCode=fcywxcx&jscode=001V7NPy0j0Zub1rifMy0a0cQy0V7NPC&recommendCode=&version=&nickname=&sex&city=&province=&avatarUrl=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"loginXcx"
+							],
+							"query": [
+								{
+									"key": "myCode",
+									"value": "fcywxcx"
+								},
+								{
+									"key": "jscode",
+									"value": "001V7NPy0j0Zub1rifMy0a0cQy0V7NPC"
+								},
+								{
+									"key": "recommendCode",
+									"value": "",
+									"description": "推荐码，可以为空"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"description": "版本号，可为空"
+								},
+								{
+									"key": "nickname",
+									"value": "",
+									"description": "可为空"
+								},
+								{
+									"key": "sex",
+									"value": null,
+									"description": "性别"
+								},
+								{
+									"key": "city",
+									"value": "",
+									"description": "城市"
+								},
+								{
+									"key": "province",
+									"value": "",
+									"description": "省"
+								},
+								{
+									"key": "avatarUrl",
+									"value": "",
+									"description": "头像"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/third/wx/wxacodeunlimit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/third/wx/wxacodeunlimit?appCode=&scene=&pagePath=&width=&auto_color=&line_color=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"third",
+								"wx",
+								"wxacodeunlimit"
+							],
+							"query": [
+								{
+									"key": "appCode",
+									"value": ""
+								},
+								{
+									"key": "scene",
+									"value": ""
+								},
+								{
+									"key": "pagePath",
+									"value": ""
+								},
+								{
+									"key": "width",
+									"value": ""
+								},
+								{
+									"key": "auto_color",
+									"value": ""
+								},
+								{
+									"key": "line_color",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/upload/article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/upload/article?file=&hash=&token=&content_type=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"upload",
+								"article"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": "",
+									"description": "文件流"
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "content_type",
+									"value": "",
+									"description": "video 视频 audio音频  img图片"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/upload/avatar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/upload/avatar?file=&hash=&token=&uid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"upload",
+								"avatar"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": ""
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "uid",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/topic?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&topicId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"topic"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "topicId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/myFriends",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/myFriends?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&skip&limit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"myFriends"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/myBlacks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/myBlacks?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&skip&limit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"myBlacks"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/msg/follows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/msg/follows?token=67620b84e8360d072fd1dd519eea6c86&limit=20&skip=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"msg",
+								"follows"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "67620b84e8360d072fd1dd519eea6c86"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/applyCp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/applyCp?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&rid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"applyCp"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "rid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "申请组成cp"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/replyCp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/replyCp?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&id=111_222&status=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"replyCp"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "id",
+									"value": "111_222"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 同意 其他不同意"
+								}
+							]
+						},
+						"description": "cp申请回复"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/applyRelieve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/applyRelieve?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&rid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"applyRelieve"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "rid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "解除cp申请"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/replyRelieve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/replyRelieve?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&id=111_222&status=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"replyRelieve"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "id",
+									"value": "111_222"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 同意 其他不同意"
+								}
+							]
+						},
+						"description": "cp解除回复"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/relationship/forceRelieve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/relationship/forceRelieve?token=51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412&rid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"relationship",
+								"forceRelieve"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51b19cf624e5162abcd8b8f441d9b065df3283742ae6f412"
+								},
+								{
+									"key": "rid",
+									"value": "1"
+								}
+							]
+						},
+						"description": "强制解除cp\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/tip/tip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/tip/tip?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&recvUid=0&type=1&content=对对赌地&pics=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"tip",
+								"tip"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "recvUid",
+									"value": "0"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "content",
+									"value": "对对赌地"
+								},
+								{
+									"key": "pics",
+									"value": ""
+								}
+							]
+						},
+						"description": "举报\n"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/sig",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/user/sig?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"sig"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/chat/logs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/chat/logs?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&chatLogs=[\n\t{\n\t\t\"sendUid\":1111,\n\t\t\"recvUid\":1112,\n\t\t\"seq\":1,\n\t\t\"timestamp\":1111\n\t},\n\t{\n\t\t\"sendUid\":1111,\n\t\t\"recvUid\":1112,\n\t\t\"seq\":2,\n\t\t\"timestamp\":111112321\n\t},\n\t{\n\t\t\"sendUid\":1112,\n\t\t\"recvUid\":1111,\n\t\t\"seq\":3,\n\t\t\"timestamp\":11113213123\n\t}\n]",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"chat",
+								"logs"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "chatLogs",
+									"value": "[\n\t{\n\t\t\"sendUid\":1111,\n\t\t\"recvUid\":1112,\n\t\t\"seq\":1,\n\t\t\"timestamp\":1111\n\t},\n\t{\n\t\t\"sendUid\":1111,\n\t\t\"recvUid\":1112,\n\t\t\"seq\":2,\n\t\t\"timestamp\":111112321\n\t},\n\t{\n\t\t\"sendUid\":1112,\n\t\t\"recvUid\":1111,\n\t\t\"seq\":3,\n\t\t\"timestamp\":11113213123\n\t}\n]"
+								}
+							]
+						},
+						"description": "聊天接口 "
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/tags",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/tags?token=ea31f90222b8a5a277c3b9386c6cf3b5&type=1&limit=20&skip=0",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"description": "1 性格 2兴趣"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/setNotice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/setNotice?token=ea31f90222b8a5a277c3b9386c6cf3b5&noticeShow=1&noticeRecv=1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"setNotice"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "noticeShow",
+									"value": "1",
+									"description": "通知显示 1显示详情 2只显示通知"
+								},
+								{
+									"key": "noticeRecv",
+									"value": "1",
+									"description": "接受消息提醒 1 全部 2社区及聊天 3 聊天"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/setPrivacy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/setPrivacy?token=ea31f90222b8a5a277c3b9386c6cf3b5&shieldList=1&onlineMatched=1&chatWho=1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"setPrivacy"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "shieldList",
+									"value": "1",
+									"description": "1屏蔽通讯录 2不屏蔽"
+								},
+								{
+									"key": "onlineMatched",
+									"value": "1",
+									"description": "1在线可匹配 2在线不可匹配"
+								},
+								{
+									"key": "chatWho",
+									"value": "1",
+									"description": " 1 全部 2好友 3cp"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/config",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/config?token=ea31f90222b8a5a277c3b9386c6cf3b5",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"config"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/black",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/black?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&rid=1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"black"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "rid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/unBlack",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/unBlack?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&rid=1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"unBlack"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "rid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/user/setTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/api/user/setTag?token=ae910d4133161b08b896b5f627bf56fc&ids=1,2,3",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"setTag"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ae910d4133161b08b896b5f627bf56fc"
+								},
+								{
+									"key": "ids",
+									"value": "1,2,3"
+								}
+							]
+						},
+						"description": "设置用户标签"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/article/group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/article/group?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&skip=0&limit=20&type=0&group=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"article",
+								"group"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "type",
+									"value": "0"
+								},
+								{
+									"key": "group",
+									"value": "1",
+									"description": "1 人  2 猫 3 狗"
+								}
+							]
+						},
+						"description": "圈子文章"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/lbs/nearAddr",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/lbs/nearAddr?token=ace71a62d99c56534747cea40f38287e119879a7a8d836bc&lat=39.984154&lng=116.307490",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"lbs",
+								"nearAddr"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ace71a62d99c56534747cea40f38287e119879a7a8d836bc"
+								},
+								{
+									"key": "lat",
+									"value": "39.984154"
+								},
+								{
+									"key": "lng",
+									"value": "116.307490"
+								}
+							]
+						},
+						"description": "根据经纬度获取地址"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/showLove/top",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/showLove/top?token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"showLove",
+								"top"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						},
+						"description": "表白"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/showLove/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/showLove/list?token=&skip=&limit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"showLove",
+								"list"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": null
+								}
+							]
+						},
+						"description": "表白列表"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/showLove/shout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/showLove/shout?token=&recvUid=&content&count=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"showLove",
+								"shout"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "recvUid",
+									"value": "",
+									"description": "表白接受方"
+								},
+								{
+									"key": "content",
+									"value": null,
+									"description": "表白内容"
+								},
+								{
+									"key": "count",
+									"value": "",
+									"description": "表白次数"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "/admin/appConfig/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/appConfig/create?appId=wxb102f3fd03b0dfa9&appSecret=49aa96d7cc69e27e86fae5f2861fc305&appToken&encodingAesKey=&AppMerchantId&AppMerchantSecret&debug&name=方寸有物小程序&callbackDomain=&cert&myCode=fcywxcx&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"appConfig",
+								"create"
+							],
+							"query": [
+								{
+									"key": "appId",
+									"value": "wxb102f3fd03b0dfa9"
+								},
+								{
+									"key": "appSecret",
+									"value": "49aa96d7cc69e27e86fae5f2861fc305"
+								},
+								{
+									"key": "appToken",
+									"value": null,
+									"description": "公众号的Token"
+								},
+								{
+									"key": "encodingAesKey",
+									"value": ""
+								},
+								{
+									"key": "AppMerchantId",
+									"value": null
+								},
+								{
+									"key": "AppMerchantSecret",
+									"value": null
+								},
+								{
+									"key": "debug",
+									"value": null,
+									"description": "true/false"
+								},
+								{
+									"key": "name",
+									"value": "方寸有物小程序"
+								},
+								{
+									"key": "callbackDomain",
+									"value": "",
+									"description": "回调域名"
+								},
+								{
+									"key": "cert",
+									"value": null,
+									"description": "证书"
+								},
+								{
+									"key": "myCode",
+									"value": "fcywxcx"
+								},
+								{
+									"key": "token",
+									"value": "",
+									"description": "管理员token"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/appConfig/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/appConfig/list?myCode&appId&skip&limit&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"appConfig",
+								"list"
+							],
+							"query": [
+								{
+									"key": "myCode",
+									"value": null,
+									"description": "非必填项"
+								},
+								{
+									"key": "appId",
+									"value": null,
+									"description": "非必填想"
+								},
+								{
+									"key": "skip",
+									"value": null,
+									"description": "起始值"
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"description": "返回单页数，默认20"
+								},
+								{
+									"key": "token",
+									"value": null,
+									"description": "管理员token"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/appConfig/detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/appConfig/detail?myCode=fcywxcx&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"appConfig",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "myCode",
+									"value": "fcywxcx"
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/comment/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/comment/list?skip&limit&token&uid&aid=41",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"comment",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								},
+								{
+									"key": "token",
+									"value": null
+								},
+								{
+									"key": "uid",
+									"value": null,
+									"description": "用户id "
+								},
+								{
+									"key": "aid",
+									"value": "41",
+									"description": "文章id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/comment/reply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/comment/reply?aid=1&cid=2&uid=1&content=啊啊啊的&pics&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"comment",
+								"reply"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1",
+									"description": "文章id"
+								},
+								{
+									"key": "cid",
+									"value": "2",
+									"description": "被评论id"
+								},
+								{
+									"key": "uid",
+									"value": "1",
+									"description": "评论用户"
+								},
+								{
+									"key": "content",
+									"value": "啊啊啊的"
+								},
+								{
+									"key": "pics",
+									"value": null
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/comment/del",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/comment/del?id=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"comment",
+								"del"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/list?uid=1&skip=&limit=&type=&status=&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"list"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "type",
+									"value": ""
+								},
+								{
+									"key": "status",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/detail?id=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/del",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/del?id=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"del"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/audit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/audit?id&type&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"audit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null,
+									"description": "文章id"
+								},
+								{
+									"key": "type",
+									"value": null,
+									"description": "审核类型 1审核通过，其他不通过"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/praise/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/praise/list?aid=1&skip=&limit=&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"praise",
+								"list"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1",
+									"description": "文章id，非必填项"
+								},
+								{
+									"key": "skip",
+									"value": "",
+									"description": "过滤条数"
+								},
+								{
+									"key": "limit",
+									"value": "",
+									"description": "大小，默认20"
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/praise/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/praise/create?aid=1&uid=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"praise",
+								"create"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								},
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/coin/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/coin/list?skip&limit&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"coin",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/feedback/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/feedback/list?skip=&limit=&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"feedback",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/feedback/setStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/feedback/setStatus?id=1&status=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"feedback",
+								"setStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/topic/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/topic/list?name=&skip=&limit=&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"topic",
+								"list"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "模糊查询参数，可以为空"
+								},
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/topic/edit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/topic/edit?id=&name=&count=&status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"topic",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "count",
+									"value": ""
+								},
+								{
+									"key": "status",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/topic/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/topic/create?name=紫砂壶&count=1&status=3&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"topic",
+								"create"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "紫砂壶"
+								},
+								{
+									"key": "count",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "3"
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/user/list?skip=&limit=&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"user",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/user/info?uid=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"user",
+								"info"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/setPwd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/user/setPwd?id=1&pwd=1233456&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"user",
+								"setPwd"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "pwd",
+									"value": "1233456"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/setStatus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/user/setStatus?uid=1000018&status=1&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"user",
+								"setStatus"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1000018"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 正常 -1 锁定"
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/userInfo/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/userInfo/list?skip=&limit=&token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"userInfo",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/userInfo/info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/userInfo/update?uid=1&token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&nickname=八神打来&birthday=20080101&signal=真的来了&province=浙江&city=杭州&district=滨江&sex=1&country=中国&avatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"userInfo",
+								"update"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "nickname",
+									"value": "八神打来"
+								},
+								{
+									"key": "birthday",
+									"value": "20080101"
+								},
+								{
+									"key": "signal",
+									"value": "真的来了"
+								},
+								{
+									"key": "province",
+									"value": "浙江"
+								},
+								{
+									"key": "city",
+									"value": "杭州"
+								},
+								{
+									"key": "district",
+									"value": "滨江"
+								},
+								{
+									"key": "sex",
+									"value": "1"
+								},
+								{
+									"key": "country",
+									"value": "中国"
+								},
+								{
+									"key": "avatar",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/userInfo/relo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/userInfo/relo?uid=1&token=b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91&role=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"userInfo",
+								"relo"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": "b3e51b941ceac50f10ac7c0c315bdea7fead092fedae1c91"
+								},
+								{
+									"key": "role",
+									"value": "1",
+									"description": "1 普通用户 "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/create?token=1a6984fe60d8ad4ccda4cbd09cd05d25&type=1&name=一级菜单&sort=2&uri=/admin/perm/topMenu&icon=&pid=1&show=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"create"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "一级菜单"
+								},
+								{
+									"key": "sort",
+									"value": "2"
+								},
+								{
+									"key": "uri",
+									"value": "/admin/perm/topMenu"
+								},
+								{
+									"key": "icon",
+									"value": ""
+								},
+								{
+									"key": "pid",
+									"value": "1"
+								},
+								{
+									"key": "show",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/list?token=f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38&skip=0&limit=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"list"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "f05443c9acfa209537184dfcc2473ab15b2e8bb42343ba38"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/update?token=1a6984fe60d8ad4ccda4cbd09cd05d25&menuId=7&type=1&name=权限设置&sort=4&uri=/admin/perm/setPerm&icon=&pid=1&show=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"update"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "menuId",
+									"value": "7"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "name",
+									"value": "权限设置"
+								},
+								{
+									"key": "sort",
+									"value": "4"
+								},
+								{
+									"key": "uri",
+									"value": "/admin/perm/setPerm"
+								},
+								{
+									"key": "icon",
+									"value": ""
+								},
+								{
+									"key": "pid",
+									"value": "1"
+								},
+								{
+									"key": "show",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/detail?token=1a6984fe60d8ad4ccda4cbd09cd05d25&id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/del",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/del?token=1a6984fe60d8ad4ccda4cbd09cd05d25&id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"del"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/allMenuAndUserPerm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/allMenuAndUserPerm?token=1a6984fe60d8ad4ccda4cbd09cd05d25&uid=1&type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"allMenuAndUserPerm"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "uid",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/userMenu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/userMenu?token=1a6984fe60d8ad4ccda4cbd09cd05d25&type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"userMenu"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/setPerm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/setPerm?token=1a6984fe60d8ad4ccda4cbd09cd05d25&uid=3&ids=1,2,3,4,5,6,7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"setPerm"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "1a6984fe60d8ad4ccda4cbd09cd05d25"
+								},
+								{
+									"key": "uid",
+									"value": "3"
+								},
+								{
+									"key": "ids",
+									"value": "1,2,3,4,5,6,7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/topMenu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/topMenu?token=3e55ecc630678ba06ca89b6ed01870a63a8f1d512c5e6b2c&type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"topMenu"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "3e55ecc630678ba06ca89b6ed01870a63a8f1d512c5e6b2c"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/article/comment/praise/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/article/comment/praise/list?skip&limit&token&uid&cid=41",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"article",
+								"comment",
+								"praise",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								},
+								{
+									"key": "token",
+									"value": null
+								},
+								{
+									"key": "uid",
+									"value": null
+								},
+								{
+									"key": "cid",
+									"value": "41"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/list?skip=&limit=&token=&status=&type=&via=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"list"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": ""
+								},
+								{
+									"key": "limit",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "status",
+									"value": ""
+								},
+								{
+									"key": "type",
+									"value": ""
+								},
+								{
+									"key": "via",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/detail?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/create?type=1&title=大大大大大大&pic&op=1&opId&status=1&vias=1,2&sort=1&startTime=2020-3-5 12:12:12&endTime=2020-3-8 12:12:12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"create"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "1",
+									"description": "默认1"
+								},
+								{
+									"key": "title",
+									"value": "大大大大大大",
+									"description": "文字内容"
+								},
+								{
+									"key": "pic",
+									"value": null,
+									"description": "banner图地址"
+								},
+								{
+									"key": "op",
+									"value": "1",
+									"description": "1链接"
+								},
+								{
+									"key": "opId",
+									"value": null,
+									"description": "对应op数据"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1未审核 3 审核通过 -1 删除"
+								},
+								{
+									"key": "vias",
+									"value": "1,2",
+									"description": "使用平台 1小程序"
+								},
+								{
+									"key": "sort",
+									"value": "1",
+									"description": "排序id"
+								},
+								{
+									"key": "startTime",
+									"value": "2020-3-5 12:12:12",
+									"description": "开始时间"
+								},
+								{
+									"key": "endTime",
+									"value": "2020-3-8 12:12:12",
+									"description": "结束时间"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/edit?id=1&type=1&title=大大大大大大&pic&op=1&opId&status=1&vias=1,2&sort=1&startTime=2020-3-5 12:12:12&endTime=2020-3-8 12:12:12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"edit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "title",
+									"value": "大大大大大大"
+								},
+								{
+									"key": "pic",
+									"value": null
+								},
+								{
+									"key": "op",
+									"value": "1"
+								},
+								{
+									"key": "opId",
+									"value": null
+								},
+								{
+									"key": "status",
+									"value": "1"
+								},
+								{
+									"key": "vias",
+									"value": "1,2"
+								},
+								{
+									"key": "sort",
+									"value": "1"
+								},
+								{
+									"key": "startTime",
+									"value": "2020-3-5 12:12:12"
+								},
+								{
+									"key": "endTime",
+									"value": "2020-3-8 12:12:12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/ops",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/ops?token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"ops"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/banner/vias",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/banner/vias?token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"banner",
+								"vias"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/upload/data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/upload/data?file=&hash=&token=&content_type=&type=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"upload",
+								"data"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": ""
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "token",
+									"value": ""
+								},
+								{
+									"key": "content_type",
+									"value": "",
+									"description": "图片 pic 视频 video"
+								},
+								{
+									"key": "type",
+									"value": "",
+									"description": "头像：avatars；文章：arts ；banner：banners"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/topic/detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/topic/detail?id=1&token=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"topic",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "token",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/perm/userMenu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/admin/perm/userMenu?token=3e55ecc630678ba06ca89b6ed01870a63a8f1d512c5e6b2c&type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"admin",
+								"perm",
+								"userMenu"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "3e55ecc630678ba06ca89b6ed01870a63a8f1d512c5e6b2c"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/tags",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/admin/user/tags?token=ea31f90222b8a5a277c3b9386c6cf3b5&type=1&limit=20&skip=0",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"user",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "skip",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/admin/user/tagSet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.2.200:8080/admin/user/tagSet?token=ea31f90222b8a5a277c3b9386c6cf3b5&type=1&id=0&men=帅气&woman=漂亮&cat=好看&dog=好看&status=1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"2",
+								"200"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"user",
+								"tagSet"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "ea31f90222b8a5a277c3b9386c6cf3b5"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"description": "1性格 2兴趣"
+								},
+								{
+									"key": "id",
+									"value": "0",
+									"description": "新的的时候未null或者0"
+								},
+								{
+									"key": "men",
+									"value": "帅气",
+									"description": "男人的标签"
+								},
+								{
+									"key": "woman",
+									"value": "漂亮",
+									"description": "女人的标签"
+								},
+								{
+									"key": "cat",
+									"value": "好看",
+									"description": "猫的标签"
+								},
+								{
+									"key": "dog",
+									"value": "好看",
+									"description": "狗的标签"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"description": "1 未审核 3审核通过 -1 删除 "
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unity3d.player"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <!--与键盘插件冲突-->
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="29" />
+  
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"/>
+
+    <!--TimSdk-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--读写-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE"/>
+    <!--GPS-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  
+    <!--AndroidP Cleartext HTTP traffic to xxx not permitted-->
+    <application
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true"
+        android:allowBackup="true"
+        android:supportsRtl="true" >
+        <activity android:name="com.zdkj.plugin.TimFragment">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+            <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
+        </activity>
+        <!--<activity android:name="com.zdkj.plugin.NativeActivity" />-->
+        <!--不是activity
+        <activity android:name="com.zdkj.plugin.NativeFragment"></activity>
+        <activity android:name="com.zdkj.plugin.TimFragment"></activity> -->
+        <!--裁切activity
+        <activity
+            android:name="com.astricstore.imageandvideopicker.AndroidPickerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+        <activity
+            android:name="eu.janmuller.android.simplecropimage.CropImage"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity> -->
+    </application>
+</manifest>

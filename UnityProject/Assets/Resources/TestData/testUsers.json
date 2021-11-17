@@ -1,0 +1,42 @@
+[
+	{
+		"Identifier": "test00",
+		"UserSig": ""
+	},
+	{
+		"Identifier": "test01",
+		"UserSig": "eJwtzEELgjAYxvHvsnPI6zadCV0C7dJBcFHX0Klv2hJd04y*e6Ien98D-y*R59SxqiMhoQ6Q3bIxV9pggQsb1Rtwt6fP63vbYk5ClwMw6vuUr48aW*zU7J7nUQBY1eBzsYBxIeiebRUs53AnomtcNw*h46ScBvlxbTpeXpmVxXQ7vrXVFW*S7DQE0YH8-mKwMu0_"
+	},
+	{
+		"Identifier": "test02",
+		"UserSig": "eJyrVgrxCdYrSy1SslIy0jNQ0gHzM1NS80oy0zLBwiWpxSUGRlCZ4pTsxIKCzBQlK0MTAwNjIzMzIxOITGpFQWZRKlDc1NTUyMDAACJakpkLFrMwNjG3MLaAqi3OTAca7OwREV5pHuXhbulSVOXu7pRUbGJR5phk6Zob6eHl72kU7B6cEeZRnG8ZnG*rVAsAMDYxAA__"
+	},
+	{
+		"Identifier": "test03",
+		"UserSig": "eJwtzM0KgkAUhuF7mXXYaX7UhBZFQtCPRZEt2kzOTJykGHRQIbr3ZHT5PR*8X3LZnYNGVyQhNAAy8RuV-jg06Nnp2gEbn1qV0lpUJJlxAEbDkPLh0Z3FSvcuhKAAMKjDt7eYRYyLOBor*OzD7TFrUnZa59cVKMWNe92nRbsUqc5Etz3wze0xL7hBKcv9gvz*adgxjA__"
+	},
+	{
+		"Identifier": "test04",
+		"UserSig": "eJyrVgrxCdYrSy1SslIy0jNQ0gHzM1NS80oy0zLBwiWpxSUGJlCZ4pTsxIKCzBQlK0MTAwNjIzMzIxOITGpFQWZRKlDc1NTUyMDAACJakpkLFrMwNjc2MbOAqi3OTAcanJIbFpiWWBiaXGZQ4eEb7Oln6hmUYe7t4hrlHKOfElzp6e9SZmEelpwU5ZRvq1QLAHZXMbE_"
+	},
+	{
+		"Identifier": "test05",
+		"UserSig": "eJwtzM0KgkAYheF7mW0hn-OnCW2qRTFSkIW1lBz1M6YGHaKI7j0ZXZ7nwPslpzQLXrojCaEBkLnfWOqHwwo9O907ENPTl-fCWixJEnIARqWkfHz022KnBxdCUAAY1aHxFrOIcbmQUwXrIZwia6uPM*tImeZqb-nsEjeHZ5Hxba3UKuc7HdbtZn805yX5-QFLKTGO"
+	},
+	{
+		"Identifier": "test06",
+		"UserSig": "eJwtzE0LgkAUheH-creF3ObLRmhfYAZNFC2jGfUSTaJTRtF-T0aX5znwfuGQm*TlWsiAJQjzuMk6H6ikyMF1AdX0dPZ2aRqykC0EImdKMTE*7t1Q6waXUjJEHDXQPdqSp1xIqacKVUP48VmfzYyVxTXV3G*qesdRpTZ-Hn19wr7b*6rVwhRb26-g9wc2lzFX"
+	},
+	{
+		"Identifier": "test07",
+		"UserSig": "eJyrVgrxCdYrSy1SslIy0jNQ0gHzM1NS80oy0zLBwiWpxSUG5lCZ4pTsxIKCzBQlK0MTAwNjIzMzIxOITGpFQWZRKlDc1NTUyMDAACJakpkLFrMwNjc2MTc0gpqSmQ40OLQot8DZzd3cLbM418nXzSU5wNIiMjAoRt8sLSuoKqTYz7LUIjjEOSwnLzDSVqkWAG7MMbQ_"
+	},
+	{
+		"Identifier": "test08",
+		"UserSig": "eJwtzEsLgkAUhuH-MtvCzlwdhBZdDJKIotq5CWaSUyQyniyJ-nuiLr-ng-fLzrtT1PjAEiYiYNN*o-Ml4Q17Jl8T2PGp3eNaVehYwhWAFMYINTz*U2HwnWutBQAMSvjszcpYqpjbsYJFF-bvfFZs6bXSdD9u9uVk0bRrfsmESwOoVGXQGHLtso4Pds5*f3ISMVk_"
+	},
+	{
+		"Identifier": "test09",
+		"UserSig": "eJwtzE8LgjAcxvH3snPYb3Obf6CLBhUIHdRbl*Fm-JBiuSGO6L0n6vH5PPD9kqaqo8mMJCcsAnJYN2rz9tjjyt44D9n*OD0oa1GTnHKAmEnJ*PaY2eJoFhdCMADY1ONrtTROYi5SulfwuYTnMrSqEI2axONY3M4DWK6zLtyrRiZd*1FXFuhA4VKX7kR*f2idMSQ_"
+	}
+]
